@@ -48,3 +48,20 @@ export const deleteEvent = async (id) => {
     throw new Error('something is wrong!');
   }
 };
+
+export const editStatusEvent = async (data) => {
+  try {
+    const response = await axios.put(
+      'https://dinsos-server.vercel.app/api/event/status',
+      data
+    );
+
+    if (response.status > 300) {
+      throw new Error('Not found');
+    }
+
+    return response.data;
+  } catch (error) {
+    throw new Error('something is wrong!');
+  }
+};

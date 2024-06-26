@@ -36,7 +36,7 @@ const AddEventPage = () => {
   };
 
   if (loading) return <p className="text-white">Loading...</p>;
-  if (error) return <p>Error:{error}</p>;
+  if (error) return <p>Error:</p>;
   return (
     <div className="text-white flex flex-col gap-5">
       <div className="w-full flex flex-row items-center justify-between p-6 rounded-lg border border-gray-500 bg-gray-800">

@@ -28,7 +28,7 @@ const TableEvents = () => {
   }, [isChange]);
 
   if (loading) return <p className="text-white">Loading...</p>;
-  if (error) return <p>Error:{error}</p>;
+  if (error) return <p>Error:</p>;
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500">
