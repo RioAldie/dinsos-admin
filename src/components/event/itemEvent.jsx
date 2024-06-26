@@ -2,7 +2,7 @@
 
 import { deleteEvent, editStatusEvent } from '@/lib/event';
 
-const Itemevent = (props) => {
+const ItemEvent = (props) => {
   const {
     title,
     date,
@@ -91,4 +91,4 @@ const Itemevent = (props) => {
   );
 };
 
-export default Itemevent;
+export default ItemEvent;
