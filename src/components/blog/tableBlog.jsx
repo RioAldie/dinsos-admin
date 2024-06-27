@@ -26,12 +26,10 @@ const TableBlog = () => {
     }
 
     fetchData();
-  }, []);
+  }, [isChange]);
 
   if (loading) return <p className="text-white">Loading...</p>;
   if (error) return <p>Error:</p>;
-
-  console.log(posts);
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500">
@@ -68,7 +66,6 @@ const TableBlog = () => {
                 createAt={post.createAt}
                 index={i}
                 key={i}
-                content={post.content}
                 id={post._id}
                 setIsChange={setIsChange}
               />

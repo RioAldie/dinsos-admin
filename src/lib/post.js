@@ -33,3 +33,34 @@ export const postNewBlog = async (formData) => {
     throw new Error('something is wrong!');
   }
 };
+
+export const deletePost = async (id) => {
+  try {
+    const response = await axios.delete(
+      `https://dinsos-server.vercel.app/api/post/${id}`
+    );
+
+    if (response.status > 300) {
+      throw new Error('Not found');
+    }
+
+    return response.data;
+  } catch (error) {
+    throw new Error('something is wrong!');
+  }
+};
+export const getPost = async (id) => {
+  try {
+    const response = await axios.get(
+      `https://dinsos-server.vercel.app/api/post/${id}`
+    );
+
+    if (response.status > 300) {
+      throw new Error('Not found');
+    }
+
+    return response.data;
+  } catch (error) {
+    throw new Error('something is wrong!');
+  }
+};
