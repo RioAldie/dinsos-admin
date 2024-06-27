@@ -51,9 +51,6 @@ const TableBlog = () => {
               tanggal
             </th>
             <th scope="col" className="px-6 py-3">
-              Isi
-            </th>
-            <th scope="col" className="px-6 py-3">
               Gambar
             </th>
             <th scope="col" className="px-6 py-3">
@@ -73,6 +70,7 @@ const TableBlog = () => {
                 key={i}
                 content={post.content}
                 id={post._id}
+                setIsChange={setIsChange}
               />
             );
           })}
