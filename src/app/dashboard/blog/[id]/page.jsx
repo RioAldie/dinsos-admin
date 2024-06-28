@@ -5,7 +5,7 @@ import { getPost } from '@/lib/post';
 import React, { useEffect, useState } from 'react';
 
 const ViewBlogPage = ({ params }) => {
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
