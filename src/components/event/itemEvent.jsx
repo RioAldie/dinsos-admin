@@ -54,7 +54,7 @@ const ItemEvent = (props) => {
       <td className="px-6 py-4">
         {' '}
         {status === 'active' ? (
-          <p className="p-1 rounded-lg bg-green-700/30 text-center text-gray-300">
+          <p className="p-1 rounded-lg bg-green-500/70 text-center text-white">
             active
           </p>
         ) : (

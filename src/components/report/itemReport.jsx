@@ -1,7 +1,29 @@
+'use client';
+
+import { deleteReport } from '@/lib/report';
 import Link from 'next/link';
 
 const ItemReport = (props) => {
-  const { title, id, name, status, createAt, address, index } = props;
+  const {
+    title,
+    id,
+    name,
+    status,
+    createAt,
+    address,
+    index,
+    setIsChange,
+  } = props;
+
+  const handleDelete = async () => {
+    try {
+      await deleteReport(id);
+
+      setIsChange((prev) => (prev = !prev));
+    } catch (error) {
+      setError(error);
+    }
+  };
   return (
     <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
       <th scope="row" className="px-6 py-4 ">

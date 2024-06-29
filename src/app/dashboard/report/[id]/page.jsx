@@ -1,7 +1,9 @@
 'use client';
 
+import Loading from '@/components/dashboard/loading';
 import { editStatusReport, getReport } from '@/lib/report';
-import { PhoneIcon } from '@heroicons/react/24/solid';
+import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const DetailReportPage = ({ params }) => {
@@ -41,7 +43,7 @@ const DetailReportPage = ({ params }) => {
     fetchData();
   }, [isChange]);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
   return (
     <div className="text-white flex  flex-col gap-5 ">
@@ -56,6 +58,14 @@ const DetailReportPage = ({ params }) => {
             </p>
             <p className=" border-b-2 border-gray-600 w-4/6">
               {report?.name}
+            </p>
+          </div>
+          <div className="w-full flex flex-row gap-20  justify-start h-10 ">
+            <p className=" text-gray-400 border-b-2 w-2/6 border-gray-600">
+              Nomor Telephone
+            </p>
+            <p className=" border-b-2 border-gray-600 w-4/6">
+              {report?.phone}
             </p>
           </div>
           <div className="w-full flex flex-row gap-20  justify-start h-10 ">
@@ -76,7 +86,7 @@ const DetailReportPage = ({ params }) => {
           </div>
           <div className="w-full flex flex-row gap-20  justify-start h-10 ">
             <p className=" text-gray-400 border-b-2 w-2/6 border-gray-600">
-              Alamt pelapor
+              Alamat pelapor
             </p>
             <p className=" border-b-2 border-gray-600 w-4/6">
               {report?.address}
@@ -111,7 +121,7 @@ const DetailReportPage = ({ params }) => {
               Laporan dibuat
             </p>
             <p className=" border-b-2 border-gray-600 w-4/6">
-              {report?.createAt}
+              {report?.createAt.toString().slice(0, 10)}
             </p>
           </div>
           <div className="w-full flex flex-row gap-20  justify-start h-10 ">
@@ -120,6 +130,14 @@ const DetailReportPage = ({ params }) => {
             </p>
             <p className=" border-b-2 border-gray-600 w-4/6">
               {report?.suspectName}
+            </p>
+          </div>
+          <div className="w-full flex flex-row gap-20  justify-start h-10 ">
+            <p className=" text-gray-400 border-b-2 w-2/6 border-gray-600">
+              Umur Terlapor
+            </p>
+            <p className=" border-b-2 border-gray-600 w-4/6">
+              {report?.suspectAge}
             </p>
           </div>
           <div className="w-full flex flex-row gap-20  justify-start h-10 ">
@@ -173,18 +191,23 @@ const DetailReportPage = ({ params }) => {
             </button>
           </div>
           <div className=" w-full flex flex-col items-start justify-start p-6 rounded-lg border border-gray-500 bg-gray-800 h-fit gap-3">
-            <button
-              type="button"
-              class="text-white w-64 bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex gap-2 items-center me-2 mb-2">
-              <PhoneIcon className="size-6 " />
-              Hubungi Lewat Whatsapp
-            </button>
-            <button
-              type="button"
-              class="text-white w-64 bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex gap-2 items-center me-2 mb-2">
-              <PhoneIcon className="size-6 " />
-              Hubungi Lewat Email
-            </button>
+            <Link
+              href={`https://api.whatsapp.com/send?phone=${report?.phone}`}>
+              <button
+                type="button"
+                class="text-white w-64 bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex gap-2 items-center me-2 mb-2">
+                <PhoneIcon className="size-6 " />
+                Hubungi Lewat Whatsapp
+              </button>
+            </Link>
+            <Link href={'mailto:rioaldierwanto@gmail.com'}>
+              <button
+                type="button"
+                class="text-white w-64 bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex gap-2 items-center me-2 mb-2">
+                <EnvelopeIcon className="size-6 " />
+                Hubungi Lewat Email
+              </button>
+            </Link>
           </div>
         </div>
       </div>

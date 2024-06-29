@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/components/dashboard/loading';
 import { postNewEvent } from '@/lib/event';
 import { useState } from 'react';
 
@@ -35,7 +36,7 @@ const AddEventPage = () => {
     }
   };
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
   return (
     <div className="text-white flex flex-col gap-5">

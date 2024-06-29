@@ -1,6 +1,7 @@
 'use client';
 
 import BlogDisplay from '@/components/blog/blogDisplay';
+import Loading from '@/components/dashboard/loading';
 import { getPost } from '@/lib/post';
 import React, { useEffect, useState } from 'react';
 
@@ -27,7 +28,7 @@ const ViewBlogPage = ({ params }) => {
     fetchData();
   }, []);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
   return (
     <div className="text-white flex flex-col gap-5">

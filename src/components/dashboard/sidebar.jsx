@@ -4,7 +4,6 @@ import {
   ChartPieIcon,
   ChatBubbleLeftRightIcon,
   DocumentTextIcon,
-  UserIcon,
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 
@@ -39,20 +38,10 @@ const Sidebar = () => {
           <ul className="space-y-2 font-medium mt-12">
             <li>
               <Link
-                href="#"
+                href="/dashboard"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <ChartPieIcon className="size-6" />
                 <span className="ms-3">Dashboard</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/dashboard/profile"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100  group dark:hover:bg-gray-700">
-                <UserIcon className="size-6" />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  Profile
-                </span>
               </Link>
             </li>
             <li>

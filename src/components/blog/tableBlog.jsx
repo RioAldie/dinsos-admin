@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import ItemBlog from './itemBlog';
 import { getAllPosts } from '@/lib/post';
+import Loading from '../dashboard/loading';
 
 const TableBlog = () => {
   const [posts, setPosts] = useState([]);
@@ -28,7 +29,7 @@ const TableBlog = () => {
     fetchData();
   }, [isChange]);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
 
   return (

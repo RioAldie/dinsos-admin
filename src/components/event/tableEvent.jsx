@@ -3,6 +3,7 @@ import { getAllEvents } from '@/lib/event';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 import ItemEvent from './itemEvent';
+import Loading from '../dashboard/loading';
 
 const TableEvents = () => {
   const [events, setEvents] = useState([]);
@@ -27,7 +28,7 @@ const TableEvents = () => {
     fetchData();
   }, [isChange]);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
 
   return (

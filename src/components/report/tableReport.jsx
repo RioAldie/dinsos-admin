@@ -3,6 +3,7 @@
 import { getAllReports } from '@/lib/report';
 import ItemReport from './itemReport';
 import { useEffect, useState } from 'react';
+import Loading from '../dashboard/loading';
 
 const TableReport = () => {
   const [reports, setReports] = useState([]);
@@ -25,9 +26,9 @@ const TableReport = () => {
     }
 
     fetchData();
-  }, []);
+  }, [isChange]);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
 
   return (
@@ -70,6 +71,7 @@ const TableReport = () => {
                 address={report.address}
                 status={report?.status}
                 id={report?._id}
+                setIsChange={setIsChange}
               />
             );
           })}
