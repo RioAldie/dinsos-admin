@@ -1,7 +1,13 @@
+import { getSession } from '@/actions';
 import Appbar from '@/components/dashboard/appbar';
 import Sidebar from '@/components/dashboard/sidebar';
+import { redirect } from 'next/navigation';
 
-const Layout = ({ children }) => {
+const Layout = async ({ children }) => {
+  const session = await getSession();
+  if (!session.isLoggedin) {
+    redirect('/login');
+  }
   return (
     <>
       <Appbar />

@@ -1,3 +1,4 @@
+import { logout } from '@/actions';
 import {
   ArrowLeftStartOnRectangleIcon,
   CalendarIcon,
@@ -76,14 +77,14 @@ const Sidebar = () => {
             </li>
 
             <li>
-              <Link
-                href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <ArrowLeftStartOnRectangleIcon className="size-6" />
-                <span className="flex-1 ms-3 whitespace-nowrap">
-                  Logout
-                </span>
-              </Link>
+              <form action={logout}>
+                <button className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <ArrowLeftStartOnRectangleIcon className="size-6" />
+                  <span className="flex-1 ms-3 whitespace-nowrap">
+                    Logout
+                  </span>
+                </button>{' '}
+              </form>
             </li>
           </ul>
         </div>

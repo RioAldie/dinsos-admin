@@ -5,6 +5,7 @@ import ImageUploader from './imageUploader';
 import { postNewBlog } from '@/lib/post';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import Loading from '../dashboard/loading';
 
 const FormAddBlog = () => {
   const [image, setImage] = useState('');
@@ -56,7 +57,7 @@ const FormAddBlog = () => {
     }
   }, [image, value]);
 
-  if (loading) return <p className="text-white">Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error:</p>;
 
   return (
